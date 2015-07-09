@@ -15,6 +15,6 @@ windows_zipfile node['hashutils']['out_path'] do
   not_if {::Dir.exists? node['hashutils']['out_path'] }
 end
 
-windows_path File.join(node['hashutils']['out_path'], node['hashutils']['bin_folder']) do
+windows_path File.join(node['hashutils']['out_path'], node['hashutils']['bin_folder']).gsub('/','\\') do
   action :add
 end
